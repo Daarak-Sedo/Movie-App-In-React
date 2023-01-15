@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Movie from './Movie';
+import Header from './Header';
+import movies from './movie.json';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+        <Header></Header>
+     
+       <div className='main'>
+    {/* <Movie/>
+    <Movie/>
+    <Movie/> */}
+
+                 {/* For Dynamic data Rendar we will use Map Object by Passing Props from Paresnts to cghild function, Bcz Child Componant will rendar */}
+       {
+        movies.map((element,index)=>{
+          return(
+            <Movie  title={element.Title} year={element.Year} img={element.Poster}    />
+
+          )       
+        })
+       }
+ 
+       </div>
+  </div>
   );
 }
 
